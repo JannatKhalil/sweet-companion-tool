@@ -3,7 +3,6 @@ import { FloatingBalloons } from "@/components/FloatingBalloons";
 import { Sparkles } from "@/components/Sparkles";
 import { CountdownTogether } from "@/components/CountdownTogether";
 import { SurpriseModal } from "@/components/SurpriseModal";
-import { PhotoGallery } from "@/components/PhotoGallery";
 import bouquetImg from "@/assets/bouquet.png";
 import balloonsImg from "@/assets/balloons.png";
 import peonyImg from "@/assets/peony.png";
@@ -150,26 +149,6 @@ function Index() {
               );
             })}
           </ol>
-        </div>
-      </section>
-
-      {/* PHOTO GALLERY */}
-      <section className="relative z-10 px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-14 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <img src={kittyImg} alt="" className="h-12 w-12 animate-sway" loading="lazy" width={1024} height={1024} />
-              <p className="font-script text-2xl text-lilac">our little gallery</p>
-              <img src={batmanImg} alt="" className="h-12 w-12 animate-sway" style={{ animationDelay: "1s" }} loading="lazy" width={1024} height={1024} />
-            </div>
-            <h2 className="mt-2 font-display text-5xl italic text-burgundy sm:text-6xl">
-              moments, <em className="text-coral">framed</em>
-            </h2>
-            <p className="mt-3 text-sm italic text-muted-foreground">
-              (tap any polaroid to see it bigger 💕)
-            </p>
-          </div>
-          <PhotoGallery />
         </div>
       </section>
 
