@@ -75,7 +75,13 @@
   --lavender: oklch(0.82 0.07 305);
   --lilac: oklch(0.7 0.11 310);
 
-  --gradient-dreamy: linear-gradient(135deg, oklch(0.97 0.025 50) 0%, oklch(0.93 0.06 30) 35%, oklch(0.9 0.07 330) 70%, oklch(0.86 0.08 305) 100%);
+  --gradient-dreamy:
+    radial-gradient(ellipse at 12% 8%, oklch(0.93 0.07 25 / 0.85) 0%, transparent 45%),
+    radial-gradient(ellipse at 88% 12%, oklch(0.88 0.08 310 / 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 88%, oklch(0.55 0.16 18 / 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 18% 92%, oklch(0.9 0.07 70 / 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, oklch(0.92 0.06 340 / 0.6) 0%, transparent 60%),
+    linear-gradient(135deg, oklch(0.97 0.03 60) 0%, oklch(0.94 0.05 30) 25%, oklch(0.9 0.07 350) 55%, oklch(0.85 0.09 305) 80%, oklch(0.55 0.14 20) 100%);
   --gradient-sunset: linear-gradient(180deg, oklch(0.97 0.03 60) 0%, oklch(0.9 0.08 35) 100%);
   --gradient-coral: linear-gradient(135deg, oklch(0.78 0.16 30), oklch(0.65 0.18 22));
   --gradient-burgundy: linear-gradient(135deg, oklch(0.55 0.16 20), oklch(0.38 0.13 18));
