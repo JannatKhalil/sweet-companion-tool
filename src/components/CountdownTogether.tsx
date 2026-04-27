@@ -15,8 +15,11 @@ function diff() {
 }
 
 export function CountdownTogether() {
-  const [t, setT] = useState(diff());
+  const [mounted, setMounted] = useState(false);
+  const [t, setT] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   useEffect(() => {
+    setMounted(true);
+    setT(diff());
     const id = setInterval(() => setT(diff()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -35,7 +38,7 @@ export function CountdownTogether() {
           style={{ borderColor: "var(--border)" }}
         >
           <div className="font-display text-4xl font-medium text-coral sm:text-5xl">
-            {String(i.value).padStart(2, "0")}
+            {mounted ? String(i.value).padStart(2, "0") : "--"}
           </div>
           <div className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">{i.label}</div>
         </div>
