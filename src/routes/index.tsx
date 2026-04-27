@@ -230,8 +230,8 @@ function Index() {
                   corner of my heart. and yet, here we are.
                 </p>
                 <p>
-                  you are my softest morning and my loudest laugh. you are the reason rainy
-                  days feel cozy and ordinary tuesdays feel sacred.
+                  i want to make you feel the most special person in the world, because
+                  for me you are my babygurl, cutue pyara bcha.
                 </p>
                 <p>
                   thank you for choosing me, again and again — in the small ways, in the big

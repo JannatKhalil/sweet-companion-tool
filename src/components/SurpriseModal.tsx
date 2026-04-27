@@ -31,6 +31,12 @@ export function SurpriseModal() {
                 If I had to choose between loving you and breathing,<br />
                 I would use my last breath to say <em>“I love you.”</em>
               </p>
+              <p className="mt-4 font-display text-lg italic leading-relaxed text-foreground/80 sm:text-xl">
+                i am always here for you nd im super proud of u mri jan muwah my baby ilysmm
+              </p>
+              <p dir="rtl" lang="ar" className="mt-4 font-display text-xl leading-relaxed text-burgundy sm:text-2xl">
+                أحبك أكثر مما يستطيع أي شخص فعله🎀💐✨💗
+              </p>
               <div className="mt-6 flex justify-center gap-2 text-2xl">
                 <span className="animate-heart-beat" style={{ animationDelay: "0s" }}>♡</span>
                 <span className="animate-heart-beat" style={{ animationDelay: "0.2s" }}>♡</span>
