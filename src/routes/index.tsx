@@ -3,6 +3,7 @@ import { FloatingBalloons } from "@/components/FloatingBalloons";
 import { Sparkles } from "@/components/Sparkles";
 import { CountdownTogether } from "@/components/CountdownTogether";
 import { SurpriseModal } from "@/components/SurpriseModal";
+import { HeartRevealGame } from "@/components/HeartRevealGame";
 import bouquetImg from "@/assets/bouquet.png";
 import balloonsImg from "@/assets/balloons.png";
 import peonyImg from "@/assets/peony.png";
@@ -52,15 +53,12 @@ const TIMELINE = [
     text: "jab bhi lage aap ka koi nahi hai — aap mere paas aa jana. main hamesha aap ke liye free hoon. i love you so much, itna jitna main khud se bhi nahi. 💌🤍✨",
     color: "lavender",
   },
-];
-
-const REASONS = [
-  "the way you say my name",
-  "your hand finding mine in the dark",
-  "the songs you send me at 2am",
-  "how safe you make me feel",
-  "your laugh — my favorite sound",
-  "the future i can see in your eyes",
+  {
+    date: "my one promise",
+    title: "kabhi mujhe chhor ke na jana",
+    text: "agar kahin meri ghalti bhi ho, to samjha dena — but please kabhi mujhe chhor ke na jana. aur bas aise hi hamesha mujhe pyar karna. 🤍🎀",
+    color: "coral",
+  },
 ];
 
 function Index() {
@@ -184,38 +182,18 @@ function Index() {
         </div>
       </section>
 
-      {/* REASONS GRID */}
+      {/* LOVE GAME */}
       <section className="relative z-10 px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <img src={peonyImg} alt="" className="mx-auto h-24 w-24 animate-float-gentle" loading="lazy" width={1024} height={1024} />
             <h2 className="mt-4 font-display text-5xl italic text-burgundy sm:text-6xl">
-              all the reasons <em className="text-coral">why</em>
+              a little <em className="text-coral">love game</em>
             </h2>
-            <p className="mt-3 font-script text-2xl text-lilac">(a list i could write forever)</p>
+            <p className="mt-3 font-script text-2xl text-lilac">just for you, my baby 🎀</p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {REASONS.map((r, i) => {
-              const accent = i % 3 === 0 ? "bg-gradient-coral" : i % 3 === 1 ? "bg-gradient-burgundy" : "bg-gradient-lavender";
-              return (
-                <div
-                  key={i}
-                  className="group relative rounded-3xl border border-coral/15 bg-card/80 p-7 backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-soft animate-fade-up"
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  <div
-                    className={`absolute -top-3 -right-3 grid h-10 w-10 place-items-center rounded-full ${accent} text-primary-foreground shadow-petal`}
-                  >
-                    <span className="font-display italic">{i + 1}</span>
-                  </div>
-                  <p className="font-display text-2xl italic leading-snug text-foreground/90">
-                    “{r}”
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <HeartRevealGame />
         </div>
       </section>
 
