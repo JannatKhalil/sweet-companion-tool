@@ -16,10 +16,42 @@ export const Route = createFileRoute("/")({
 });
 
 const TIMELINE = [
-  { date: "the beginning", title: "the day our eyes met", text: "everything in my world rearranged itself around you. quietly, completely.", color: "coral" },
-  { date: "first chapter", title: "our first “i love you”", text: "spoken in a whisper, as if the world might break the spell. it didn’t. it bloomed.", color: "burgundy" },
-  { date: "in between", title: "a thousand little moments", text: "morning coffee, lazy sundays, the way you laugh at your own jokes. all of it, my favorite.", color: "lavender" },
-  { date: "two years in", title: "today, with you", text: "still choosing you. always choosing you. happy two years, my love.", color: "coral" },
+  {
+    date: "the beginning",
+    title: "you walked into my life",
+    text: "you suddenly came into my life and completed it. everything in my world rearranged itself around you — quietly, completely. 🌷✨",
+    color: "coral",
+  },
+  {
+    date: "my everything",
+    title: "you became my world",
+    text: "now you are my everything, my whole world. without you, i am nothing — i can't even imagine my life without you. 💗🧸",
+    color: "burgundy",
+  },
+  {
+    date: "only you",
+    title: "no one could ever take your place",
+    text: "koi bhi kabhi bhi meri zindagi mein aap ki jagah nahi le sakta. jitna khush main aap ke saath rehti hoon, kabhi kisi ke saath nahi rahi. 🥺💐",
+    color: "lavender",
+  },
+  {
+    date: "first & forever",
+    title: "my first and last love",
+    text: "aap meri pehli aur aakhri muhabbat ho — aur hamesha rahoge. agar saari duniya bhi aap ke khilaf ho jaye, tab bhi main aap ke saath hoongi. 🤍🕊️",
+    color: "coral",
+  },
+  {
+    date: "deep in my heart",
+    title: "you live in the depth of my heart",
+    text: "meri pyari guriya, apna bohot khayal rakha karo aur khush raha karo. apne baare mein kabhi bhi fazool mat socha karo. 🌸💕",
+    color: "burgundy",
+  },
+  {
+    date: "always here",
+    title: "i'm always here for you",
+    text: "jab bhi lage aap ka koi nahi hai — aap mere paas aa jana. main hamesha aap ke liye free hoon. i love you so much, itna jitna main khud se bhi nahi. 💌🤍✨",
+    color: "lavender",
+  },
 ];
 
 const REASONS = [
