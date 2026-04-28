@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
-// Famous love song — "Perfect" by Ed Sheeran (official YouTube audio embed)
-const YOUTUBE_ID = "2Vv-BfVoq4g";
+// Romantic Bollywood melody mix — Tum Hi Ho (Aashiqui 2), Sanam Re,
+// Tera Ban Jaunga, Raabta, Pehla Nasha — soft piano love vibe.
+const PLAYLIST_IDS = [
+  "Umqb9KENgmk", // Tum Hi Ho — Aashiqui 2
+  "sK7riqg2mr4", // Sanam Re — title track
+  "K_xTet06SUo", // Tera Ban Jaunga — Kabir Singh
+  "zlt38OOqwDc", // Raabta — title track
+];
+const FIRST_ID = PLAYLIST_IDS[0];
+const PLAYLIST = PLAYLIST_IDS.join(",");
 
 export function MusicPlayer() {
   const [playing, setPlaying] = useState(true);
@@ -38,7 +46,7 @@ export function MusicPlayer() {
       <div className="hidden flex-col leading-tight sm:flex">
         <span className="font-script text-base text-burgundy">our song</span>
         <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          perfect 🎀
+          tum hi ho 🎀
         </span>
       </div>
       {playing && (
@@ -58,7 +66,7 @@ export function MusicPlayer() {
       <iframe
         ref={iframeRef}
         title="our song"
-        src={`https://www.youtube.com/embed/${YOUTUBE_ID}?enablejsapi=1&autoplay=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&modestbranding=1`}
+        src={`https://www.youtube.com/embed/${FIRST_ID}?enablejsapi=1&autoplay=1&loop=1&playlist=${PLAYLIST}&controls=0&modestbranding=1`}
         allow="autoplay; encrypted-media"
         className="absolute h-0 w-0 opacity-0"
       />
