@@ -145,7 +145,7 @@ function Index() {
                     >
                       ♡
                     </span>
-                    <p className="font-script text-xl" style={{ color: "var(--rose-gold)" }}>
+                    <p className="font-script text-2xl font-bold" style={{ color: "var(--rose-gold)" }}>
                       {c.date}
                     </p>
                     <h3 className={`mt-1 font-display text-4xl font-bold italic sm:text-5xl ${titleColor}`}>{c.title}</h3>
