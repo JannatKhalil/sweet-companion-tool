@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const YOUTUBE_ID = "2Vv-BfVoq4g";
 
 export function MusicPlayer() {
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
   const [mounted, setMounted] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -58,7 +58,7 @@ export function MusicPlayer() {
       <iframe
         ref={iframeRef}
         title="our song"
-        src={`https://www.youtube.com/embed/${YOUTUBE_ID}?enablejsapi=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&modestbranding=1`}
+        src={`https://www.youtube.com/embed/${YOUTUBE_ID}?enablejsapi=1&autoplay=1&loop=1&playlist=${YOUTUBE_ID}&controls=0&modestbranding=1`}
         allow="autoplay; encrypted-media"
         className="absolute h-0 w-0 opacity-0"
       />
