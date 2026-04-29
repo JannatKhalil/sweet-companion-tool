@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-// Curated romantic snippets — only the *exact* lines you asked for,
-// stitched together so the loop never feels too long. Each entry plays
-// from `start` to `end` (seconds) and shows its lyric on screen.
+// One exact romantic snippet only. No lyrics are rendered on screen.
 type Snippet = {
   id: string;
   title: string;
@@ -12,11 +10,11 @@ type Snippet = {
 
 const SNIPPETS: Snippet[] = [
   {
-    // Sanam Re — full song from start
-    id: "sK7riqg2mr4",
+    // Sanam Re — “baadalon ki tarah...” snippet
+    id: "RZPpW5jUmXk",
     title: "sanam re 🎀",
     start: 0,
-    end: 280,
+    end: 24,
   },
 ];
 
