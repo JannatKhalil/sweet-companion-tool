@@ -26,9 +26,10 @@ const SNIPPETS: Snippet[] = [
     end: 88,
   },
   {
-    // Tum Hi Ho — Aashiqui 2 (female version) — full song from start
-    id: "IL5FPEUmuFs",
-    title: "tum hi ho (female) 💌",
+    // Meri Aashiqui — Aashiqui 2 (female / Palak Muchhal version)
+    // "meri baaton mein tera zikr sada…"
+    id: "T94PHkuydcw",
+    title: "meri aashiqui 💌",
     start: 0,
     end: 270,
   },
