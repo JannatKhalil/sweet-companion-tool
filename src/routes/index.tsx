@@ -6,7 +6,6 @@ import { SurpriseModal } from "@/components/SurpriseModal";
 import { HeartRevealGame } from "@/components/HeartRevealGame";
 import { PasswordGate } from "@/components/PasswordGate";
 import { MusicPlayer } from "@/components/MusicPlayer";
-import bouquetImg from "@/assets/bouquet.png";
 import balloonsImg from "@/assets/balloons.png";
 import peonyImg from "@/assets/peony.png";
 import bowImg from "@/assets/bow.png";
@@ -241,32 +240,12 @@ function Index() {
           <div className="mx-auto max-w-3xl text-center">
             <Sparkles count={18} seed={7} />
 
-            {/* Bouquet moved here, presented as the gift */}
-            <div className="relative mx-auto mb-8 flex justify-center">
-              <img
-                src={bouquetImg}
-                alt="A coral bouquet of peonies and roses tied with a satin bow — your gift"
-                className="animate-float-gentle h-64 w-auto drop-shadow-2xl sm:h-80"
-                width={1024}
-                height={1024}
-                loading="lazy"
-              />
-              <img
-                src={bowImg}
-                alt=""
-                className="absolute -top-6 left-1/2 w-24 -translate-x-1/2 drop-shadow-lg sm:w-32"
-                loading="lazy"
-                width={1024}
-                height={1024}
-              />
-            </div>
-
             <p className="font-script text-2xl text-lilac">a little gift, just for you 🎁</p>
             <h2 className="mt-2 font-display text-5xl font-bold italic text-burgundy sm:text-6xl">
               one more <em className="text-coral">surprise</em>
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base italic text-muted-foreground sm:text-lg">
-              a tiny bouquet, a tiny note — wrapped in everything i feel for you. 💐💗
+              tap the gift below — a bouquet aur ek chhoti si note, sirf tumhare liye 💐💗
             </p>
 
             <div className="mt-10">
