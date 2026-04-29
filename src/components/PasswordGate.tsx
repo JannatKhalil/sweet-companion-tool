@@ -27,9 +27,7 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== "undefined" && sessionStorage.getItem(STORAGE_KEY) === "1") {
-      setUnlocked(true);
-    }
+    // Always show the gate on each visit — no auto-unlock
   }, []);
 
   const submit = (e: React.FormEvent) => {
@@ -39,7 +37,6 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
       setError(false);
       setOpening(true);
       setTimeout(() => {
-        sessionStorage.setItem(STORAGE_KEY, "1");
         setUnlocked(true);
       }, 1100);
     } else {
