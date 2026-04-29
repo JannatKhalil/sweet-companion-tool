@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 type Snippet = {
   id: string;
   title: string;
-  line: string;
   start: number;
   end: number;
 };
@@ -16,7 +15,6 @@ const SNIPPETS: Snippet[] = [
     // Sanam Re — "tu hi to … hosh se uraya"
     id: "sK7riqg2mr4",
     title: "sanam re 🎀",
-    line: "tu hi to hai jo mujhko… hosh se uraya 💗",
     start: 60,
     end: 95,
   },
@@ -24,25 +22,15 @@ const SNIPPETS: Snippet[] = [
     // Tu Zaroori (Zid) — "mera humsafar"
     id: "Q4iKrGvVkbE",
     title: "tu zaroori 🤍",
-    line: "tu hi mera humsafar… tu hi meri jaan hai 🌷",
     start: 50,
     end: 88,
   },
   {
-    // Tum Hi Ho — Aashiqui 2
-    id: "Umqb9KENgmk",
-    title: "tum hi ho 💌",
-    line: "tum hi ho… ab tum hi ho, zindagi ab tum hi ho 💕",
-    start: 55,
-    end: 92,
-  },
-  {
-    // Tera Ban Jaunga — Kabir Singh
-    id: "K_xTet06SUo",
-    title: "tera ban jaunga 🌸",
-    line: "haan tera ban jaunga… kya kabhi meri kahaani sun-ne aayegi? 🥺",
-    start: 60,
-    end: 100,
+    // Tum Hi Ho — Aashiqui 2 (female version) — full song from start
+    id: "IL5FPEUmuFs",
+    title: "tum hi ho (female) 💌",
+    start: 0,
+    end: 270,
   },
 ];
 
@@ -80,20 +68,7 @@ export function MusicPlayer() {
   const cur = SNIPPETS[idx];
 
   return (
-    <>
-      {/* Floating lyric caption — soft, karaoke-style */}
-      {playing && (
-        <div
-          key={idx}
-          className="pointer-events-none fixed bottom-24 left-1/2 z-40 w-[90%] max-w-md -translate-x-1/2 text-center animate-fade-up"
-        >
-          <div className="inline-block rounded-2xl bg-card/80 px-5 py-2 shadow-soft backdrop-blur-md border border-coral/20">
-            <p className="font-script text-xl text-burgundy sm:text-2xl">{cur.line}</p>
-          </div>
-        </div>
-      )}
-
-      <div className="fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-card/85 px-4 py-2 shadow-soft backdrop-blur-md border border-coral/30">
+    <div className="fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-card/85 px-4 py-2 shadow-soft backdrop-blur-md border border-coral/30">
         <button
           onClick={toggle}
           aria-label={playing ? "Pause music" : "Play love song"}
@@ -139,7 +114,6 @@ export function MusicPlayer() {
             50% { height: 18px; }
           }
         `}</style>
-      </div>
-    </>
+    </div>
   );
 }
