@@ -10,11 +10,11 @@ type Snippet = {
 
 const SNIPPETS: Snippet[] = [
   {
-    // Sanam Re — “baadalon ki tarah...” snippet
+    // Sanam Re — full song, starts a little before "baadalon ki tarah..." and plays till the end
     id: "RZPpW5jUmXk",
     title: "sanam re 🎀",
-    start: 0,
-    end: 24,
+    start: 60,
+    end: 300,
   },
 ];
 
