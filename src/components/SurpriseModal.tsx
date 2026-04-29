@@ -22,15 +22,15 @@ export function SurpriseModal() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-w-lg overflow-visible rounded-[2rem] bg-card px-8 pb-8 pt-6 text-center shadow-soft sm:px-12 sm:pb-12"
+            className="relative max-h-[calc(100svh-2rem)] max-w-lg overflow-y-auto rounded-[2rem] bg-card px-6 pb-7 pt-5 text-center shadow-soft sm:px-12 sm:pb-12"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Bouquet inside the card, fully visible */}
-            <div className="relative mx-auto mb-2 flex items-end justify-center">
+            <div className="relative mx-auto mb-3 flex items-center justify-center">
               <img
                 src={bouquetImg}
                 alt="A coral bouquet tied with a satin bow"
-                className="h-56 w-auto animate-float-gentle drop-shadow-2xl sm:h-64"
+                className="h-40 max-h-[28svh] w-auto object-contain animate-float-gentle drop-shadow-2xl sm:h-60 sm:max-h-[34svh]"
                 width={1024}
                 height={1024}
               />

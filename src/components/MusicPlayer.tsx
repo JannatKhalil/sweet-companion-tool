@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-// Curated romantic snippets — only the *exact* lines you asked for,
-// stitched together so the loop never feels too long. Each entry plays
-// from `start` to `end` (seconds) and shows its lyric on screen.
+// One exact romantic snippet only. No lyrics are rendered on screen.
 type Snippet = {
   id: string;
   title: string;
@@ -12,11 +10,11 @@ type Snippet = {
 
 const SNIPPETS: Snippet[] = [
   {
-    // Sanam Re — full song from start
-    id: "sK7riqg2mr4",
+    // Sanam Re — “baadalon ki tarah...” snippet
+    id: "RZPpW5jUmXk",
     title: "sanam re 🎀",
     start: 0,
-    end: 280,
+    end: 24,
   },
 ];
 
@@ -24,6 +22,7 @@ export function MusicPlayer() {
   const [playing, setPlaying] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [idx, setIdx] = useState(0);
+  const [cycle, setCycle] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => setMounted(true), []);
@@ -35,9 +34,10 @@ export function MusicPlayer() {
     const ms = (cur.end - cur.start) * 1000;
     const t = setTimeout(() => {
       setIdx((i) => (i + 1) % SNIPPETS.length);
+      setCycle((c) => c + 1);
     }, ms);
     return () => clearTimeout(t);
-  }, [idx, playing, mounted]);
+  }, [idx, cycle, playing, mounted]);
 
   const toggle = () => {
     if (!iframeRef.current) return;
@@ -89,7 +89,7 @@ export function MusicPlayer() {
         <iframe
           ref={iframeRef}
           title="our song"
-          key={cur.id}
+          key={`${cur.id}-${cycle}`}
           src={`https://www.youtube.com/embed/${cur.id}?enablejsapi=1&autoplay=1&controls=0&modestbranding=1&start=${cur.start}&end=${cur.end}`}
           allow="autoplay; encrypted-media"
           className="absolute h-0 w-0 opacity-0"
