@@ -12,26 +12,11 @@ type Snippet = {
 
 const SNIPPETS: Snippet[] = [
   {
-    // Sanam Re — "tu hi to … hosh se uraya"
+    // Sanam Re — full song from start
     id: "sK7riqg2mr4",
     title: "sanam re 🎀",
-    start: 60,
-    end: 95,
-  },
-  {
-    // Tu Zaroori (Zid) — "mera humsafar"
-    id: "Q4iKrGvVkbE",
-    title: "tu zaroori 🤍",
-    start: 50,
-    end: 88,
-  },
-  {
-    // Meri Aashiqui — Aashiqui 2 (female / Palak Muchhal version)
-    // "meri baaton mein tera zikr sada…"
-    id: "T94PHkuydcw",
-    title: "meri aashiqui 💌",
     start: 0,
-    end: 270,
+    end: 280,
   },
 ];
 
