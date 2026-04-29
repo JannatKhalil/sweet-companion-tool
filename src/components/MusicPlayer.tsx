@@ -22,6 +22,7 @@ export function MusicPlayer() {
   const [playing, setPlaying] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [idx, setIdx] = useState(0);
+  const [cycle, setCycle] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => setMounted(true), []);
@@ -33,9 +34,10 @@ export function MusicPlayer() {
     const ms = (cur.end - cur.start) * 1000;
     const t = setTimeout(() => {
       setIdx((i) => (i + 1) % SNIPPETS.length);
+      setCycle((c) => c + 1);
     }, ms);
     return () => clearTimeout(t);
-  }, [idx, playing, mounted]);
+  }, [idx, cycle, playing, mounted]);
 
   const toggle = () => {
     if (!iframeRef.current) return;
@@ -87,7 +89,7 @@ export function MusicPlayer() {
         <iframe
           ref={iframeRef}
           title="our song"
-          key={cur.id}
+          key={`${cur.id}-${cycle}`}
           src={`https://www.youtube.com/embed/${cur.id}?enablejsapi=1&autoplay=1&controls=0&modestbranding=1&start=${cur.start}&end=${cur.end}`}
           allow="autoplay; encrypted-media"
           className="absolute h-0 w-0 opacity-0"
