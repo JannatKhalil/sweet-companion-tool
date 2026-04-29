@@ -22,16 +22,24 @@ export function SurpriseModal() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-w-lg overflow-visible rounded-[2rem] bg-card p-8 pt-32 text-center shadow-soft sm:p-12 sm:pt-36"
+            className="relative max-w-lg overflow-visible rounded-[2rem] bg-card px-8 pb-8 pt-6 text-center shadow-soft sm:px-12 sm:pb-12"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Bouquet sits on top of the note like a real gift wrap */}
-            <img
-              src={bouquetImg}
-              alt="A coral bouquet tied with a satin bow"
-              className="absolute -top-28 left-1/2 w-44 -translate-x-1/2 animate-float-gentle drop-shadow-2xl sm:-top-32 sm:w-52"
-            />
-            <img src={bowImg} alt="" className="absolute -top-6 left-1/2 w-20 -translate-x-1/2 drop-shadow-lg" />
+            {/* Bouquet inside the card, fully visible */}
+            <div className="relative mx-auto mb-2 flex items-end justify-center">
+              <img
+                src={bouquetImg}
+                alt="A coral bouquet tied with a satin bow"
+                className="h-56 w-auto animate-float-gentle drop-shadow-2xl sm:h-64"
+                width={1024}
+                height={1024}
+              />
+              <img
+                src={bowImg}
+                alt=""
+                className="absolute -top-2 left-1/2 w-16 -translate-x-1/2 drop-shadow-lg sm:w-20"
+              />
+            </div>
             <div>
               <p className="font-script text-4xl text-coral sm:text-5xl">my dearest love,</p>
               <p className="mt-6 font-display text-lg italic leading-relaxed text-foreground/80 sm:text-xl">
