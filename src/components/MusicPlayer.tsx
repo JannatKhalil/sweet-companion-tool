@@ -1,22 +1,69 @@
 import { useEffect, useRef, useState } from "react";
 
-// Romantic Bollywood melody mix — Tum Hi Ho (Aashiqui 2), Sanam Re,
-// Tera Ban Jaunga, Raabta, Pehla Nasha — soft piano love vibe.
-const PLAYLIST_IDS = [
-  "Umqb9KENgmk", // Tum Hi Ho — Aashiqui 2
-  "sK7riqg2mr4", // Sanam Re — title track
-  "K_xTet06SUo", // Tera Ban Jaunga — Kabir Singh
-  "zlt38OOqwDc", // Raabta — title track
+// Curated romantic snippets — only the *exact* lines you asked for,
+// stitched together so the loop never feels too long. Each entry plays
+// from `start` to `end` (seconds) and shows its lyric on screen.
+type Snippet = {
+  id: string;
+  title: string;
+  line: string;
+  start: number;
+  end: number;
+};
+
+const SNIPPETS: Snippet[] = [
+  {
+    // Sanam Re — "tu hi to … hosh se uraya"
+    id: "sK7riqg2mr4",
+    title: "sanam re 🎀",
+    line: "tu hi to hai jo mujhko… hosh se uraya 💗",
+    start: 60,
+    end: 95,
+  },
+  {
+    // Tu Zaroori (Zid) — "mera humsafar"
+    id: "Q4iKrGvVkbE",
+    title: "tu zaroori 🤍",
+    line: "tu hi mera humsafar… tu hi meri jaan hai 🌷",
+    start: 50,
+    end: 88,
+  },
+  {
+    // Tum Hi Ho — Aashiqui 2
+    id: "Umqb9KENgmk",
+    title: "tum hi ho 💌",
+    line: "tum hi ho… ab tum hi ho, zindagi ab tum hi ho 💕",
+    start: 55,
+    end: 92,
+  },
+  {
+    // Tera Ban Jaunga — Kabir Singh
+    id: "K_xTet06SUo",
+    title: "tera ban jaunga 🌸",
+    line: "haan tera ban jaunga… kya kabhi meri kahaani sun-ne aayegi? 🥺",
+    start: 60,
+    end: 100,
+  },
 ];
-const FIRST_ID = PLAYLIST_IDS[0];
-const PLAYLIST = PLAYLIST_IDS.join(",");
 
 export function MusicPlayer() {
   const [playing, setPlaying] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [idx, setIdx] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => setMounted(true), []);
+
+  // Auto-advance after each snippet's duration
+  useEffect(() => {
+    if (!mounted || !playing) return;
+    const cur = SNIPPETS[idx];
+    const ms = (cur.end - cur.start) * 1000;
+    const t = setTimeout(() => {
+      setIdx((i) => (i + 1) % SNIPPETS.length);
+    }, ms);
+    return () => clearTimeout(t);
+  }, [idx, playing, mounted]);
 
   const toggle = () => {
     if (!iframeRef.current) return;
@@ -30,52 +77,69 @@ export function MusicPlayer() {
 
   if (!mounted) return null;
 
+  const cur = SNIPPETS[idx];
+
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-card/85 px-4 py-2 shadow-soft backdrop-blur-md border border-coral/30">
-      <button
-        onClick={toggle}
-        aria-label={playing ? "Pause music" : "Play love song"}
-        className="grid h-10 w-10 place-items-center rounded-full bg-gradient-coral text-primary-foreground transition-transform hover:scale-110 active:scale-95"
-      >
-        {playing ? (
-          <span className="text-base">❚❚</span>
-        ) : (
-          <span className="ml-0.5 text-base">▶</span>
-        )}
-      </button>
-      <div className="hidden flex-col leading-tight sm:flex">
-        <span className="font-script text-base text-burgundy">our song</span>
-        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          tum hi ho 🎀
-        </span>
-      </div>
+    <>
+      {/* Floating lyric caption — soft, karaoke-style */}
       {playing && (
-        <div className="flex items-end gap-0.5">
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="block w-1 rounded-full bg-coral"
-              style={{
-                height: "14px",
-                animation: `eq 0.9s ease-in-out ${i * 0.15}s infinite`,
-              }}
-            />
-          ))}
+        <div
+          key={idx}
+          className="pointer-events-none fixed bottom-24 left-1/2 z-40 w-[90%] max-w-md -translate-x-1/2 text-center animate-fade-up"
+        >
+          <div className="inline-block rounded-2xl bg-card/80 px-5 py-2 shadow-soft backdrop-blur-md border border-coral/20">
+            <p className="font-script text-xl text-burgundy sm:text-2xl">{cur.line}</p>
+          </div>
         </div>
       )}
-      <iframe
-        ref={iframeRef}
-        title="our song"
-        src={`https://www.youtube.com/embed/${FIRST_ID}?enablejsapi=1&autoplay=1&loop=1&playlist=${PLAYLIST}&controls=0&modestbranding=1`}
-        allow="autoplay; encrypted-media"
-        className="absolute h-0 w-0 opacity-0"
-      />
-      <style>{`
-        @keyframes eq {
-          0%,100% { height: 6px; }
-          50% { height: 18px; }
-        }
-      `}</style>
-    </div>
+
+      <div className="fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-card/85 px-4 py-2 shadow-soft backdrop-blur-md border border-coral/30">
+        <button
+          onClick={toggle}
+          aria-label={playing ? "Pause music" : "Play love song"}
+          className="grid h-10 w-10 place-items-center rounded-full bg-gradient-coral text-primary-foreground transition-transform hover:scale-110 active:scale-95"
+        >
+          {playing ? (
+            <span className="text-base">❚❚</span>
+          ) : (
+            <span className="ml-0.5 text-base">▶</span>
+          )}
+        </button>
+        <div className="hidden flex-col leading-tight sm:flex">
+          <span className="font-script text-base text-burgundy">our song</span>
+          <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            {cur.title}
+          </span>
+        </div>
+        {playing && (
+          <div className="flex items-end gap-0.5">
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="block w-1 rounded-full bg-coral"
+                style={{
+                  height: "14px",
+                  animation: `eq 0.9s ease-in-out ${i * 0.15}s infinite`,
+                }}
+              />
+            ))}
+          </div>
+        )}
+        <iframe
+          ref={iframeRef}
+          title="our song"
+          key={cur.id}
+          src={`https://www.youtube.com/embed/${cur.id}?enablejsapi=1&autoplay=1&controls=0&modestbranding=1&start=${cur.start}&end=${cur.end}`}
+          allow="autoplay; encrypted-media"
+          className="absolute h-0 w-0 opacity-0"
+        />
+        <style>{`
+          @keyframes eq {
+            0%,100% { height: 6px; }
+            50% { height: 18px; }
+          }
+        `}</style>
+      </div>
+    </>
   );
 }
